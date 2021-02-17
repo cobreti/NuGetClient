@@ -5,7 +5,6 @@ class MyApp {
 
     private _mainWindow: BrowserWindow;
 
-
     async run() {
         await app.whenReady();
 
@@ -17,7 +16,7 @@ class MyApp {
             }
         });
 
-        this._mainWindow.loadURL('https://www.pathofexile.com');
+        await this._mainWindow.loadURL('https://www.pathofexile.com');
     }
 }
 
