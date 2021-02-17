@@ -16,7 +16,8 @@ class MyApp {
             }
         });
 
-        await this._mainWindow.loadURL('https://www.pathofexile.com');
+        await this._mainWindow.loadFile('src/UI/dist/index.html')
+        this._mainWindow.webContents.openDevTools();
     }
 }
 
