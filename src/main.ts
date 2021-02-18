@@ -1,4 +1,6 @@
 import {app, BrowserWindow} from "electron";
+import * as path from "path";
+import * as url from "url";
 
 
 class MyApp {
@@ -12,11 +14,12 @@ class MyApp {
             width: 500,
             height: 500,
             webPreferences: {
-                nodeIntegration: false
+                nodeIntegration: false,
+                contextIsolation: true
             }
         });
 
-        await this._mainWindow.loadFile('src/UI/dist/index.html')
+        await this._mainWindow.loadFile('src/UI/dist/index.html');
         this._mainWindow.webContents.openDevTools();
     }
 }
