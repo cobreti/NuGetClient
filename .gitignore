@@ -2,3 +2,4 @@ src/**/*.js
 src/**/*.js.map
 src/UI/dist
 node_modules/
+renderer/

@@ -17,24 +17,24 @@
         }
       },
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "ng/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "./dist",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "outputPath": "./renderer",
+            "index": "ng/src/index.html",
+            "main": "ng/src/main.ts",
+            "polyfills": "ng/src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "ng/src/favicon.ico",
+              "ng/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "ng/src/styles.scss"
             ],
             "scripts": []
           },
@@ -42,8 +42,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "ng/src/environments/environment.ts",
+                  "with": "ng/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -88,16 +88,16 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "main": "ng/src/test.ts",
+            "polyfills": "ng/src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "ng/src/favicon.ico",
+              "ng/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "ng/src/styles.scss"
             ],
             "scripts": []
           }
