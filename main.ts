@@ -1,29 +1,11 @@
-import {app, BrowserWindow} from "electron";
-import * as path from "path";
-import * as url from "url";
+// import {app, BrowserWindow} from 'electron';
+import container from './inversity.config';
+import TYPES from './Types';
+// import * as path from 'path';
+// import * as url from 'url';
+import IApplication from './src/IApplication';
 
 
-class MyApp {
+const application = container.get<IApplication>(TYPES.Application);
 
-    private _mainWindow: BrowserWindow;
-
-    async run() {
-        await app.whenReady();
-
-        this._mainWindow = new BrowserWindow({
-            width: 500,
-            height: 500,
-            webPreferences: {
-                nodeIntegration: false,
-                contextIsolation: true
-            }
-        });
-
-        await this._mainWindow.loadFile('renderer/index.html');
-        this._mainWindow.webContents.openDevTools();
-    }
-}
-
-
-let myApp = new MyApp();
-myApp.run();
+application.run();
