@@ -1,5 +1,5 @@
-src/**/*.js
-src/**/*.js.map
+**/*.js
+**/*.js.map
 src/UI/dist
 node_modules/
 renderer/
