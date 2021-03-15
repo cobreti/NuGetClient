@@ -1,11 +1,10 @@
 // import {app, BrowserWindow} from 'electron';
-import container from './inversity.config';
-import TYPES from './Types';
+import container from './src/inversity.config';
 // import * as path from 'path';
 // import * as url from 'url';
-import IApplication from './src/IApplication';
+import {IApplication, IApplicationServiceId} from './src/IApplication';
 
 
-const application = container.get<IApplication>(TYPES.Application);
+const application = container.get<IApplication>(IApplicationServiceId);
 
 application.run();

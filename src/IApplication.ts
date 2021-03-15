@@ -1,6 +1,8 @@
-interface IApplication {
+export interface IApplication {
   run(): void;
 }
 
-export default IApplication;
+export const IApplicationServiceId = Symbol('IApplication');
+
+// export default IApplication;
 
