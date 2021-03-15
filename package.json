@@ -8,7 +8,7 @@
     "ng": "ng",
     "ng-serve": "ng serve",
     "ng-build": "ng build",
-    "ng-test": "ng test",
+    "ng-test": "ng test --ts-config tsconfig.ng.spec.json",
     "ng-lint": "ng lint",
     "ng-e2e": "ng e2e"
   },
