@@ -3,10 +3,24 @@ import 'reflect-metadata';
 import {IApplication, IApplicationServiceId} from './IApplication';
 import Application from './Application';
 
-const container = new Container();
+// const container = new Container();
+//
+// container.bind<IApplication>(IApplicationServiceId)
+//   .to(Application)
+//   .inSingletonScope();
 
-container.bind<IApplication>(IApplicationServiceId)
-  .to(Application)
-  .inSingletonScope();
+function createContainer(): Container {
+  const c = new Container();
 
-export default container;
+  c.bind<IApplication>(IApplicationServiceId)
+    .to(Application)
+    .inSingletonScope();
+
+  return c;
+}
+
+export {
+  createContainer
+};
+
+// export default createContainer;

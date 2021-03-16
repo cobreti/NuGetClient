@@ -11,8 +11,11 @@
     "suppressImplicitAnyIndexErrors": true,
     "types": ["reflect-metadata"]
   },
-  "exclude": [ "node_modules" ],
+  "exclude": [ "node_modules", "./src/**/*.spec.ts" ],
   "files": [
     "./main.ts"
+  ],
+  "include": [
+    "./src/**/*.ts"
   ]
 }
