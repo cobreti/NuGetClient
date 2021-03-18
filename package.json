@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "tsc && electron .",
-    "test": "ts-node --project tsconfig.spec.json node_modules/jasmine/bin/jasmine --config=jasmine.json",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
     "ng": "ng",
     "ng-serve": "ng serve",
     "ng-build": "ng build",
