@@ -20,8 +20,12 @@
   "files": [
     "test.ts",
   ],
+  "exclude": [
+    "src/renderer_e2e",
+    "src/renderer"
+  ],
   "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "src/main/**/*.spec.ts",
+    "src/main/**/*.d.ts"
   ]
 }

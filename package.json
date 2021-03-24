@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "tsc && electron .",
-    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "test": "mocha -r ts-node/register src/main/**/*.spec.ts",
     "ng": "ng",
     "ng-serve": "ng serve",
     "ng-build": "ng build",
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "tslib": "^2.0.0",
-    "typescript": "^4.1.5",
+    "typescript": "4.1.5",
     "ts-node": "^9.1.1",
     "@angular-devkit/build-angular": "~0.1102.0",
     "@angular/cli": "~11.2.0",
