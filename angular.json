@@ -93,11 +93,11 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "ng/src/favicon.ico",
-              "ng/src/assets"
+              "src/renderer/favicon.ico",
+              "src/renderer/assets"
             ],
             "styles": [
-              "ng/src/styles.scss"
+              "src/renderer/styles.scss"
             ],
             "scripts": []
           }
