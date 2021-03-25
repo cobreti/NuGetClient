@@ -1,5 +1,5 @@
 export interface IApplication {
-  run(): void;
+  run(rootDir: string): void;
 }
 
 export const IApplicationServiceId = Symbol('IApplication');

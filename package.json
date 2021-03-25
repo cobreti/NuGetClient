@@ -1,8 +1,14 @@
 {
-  "name": "test",
+  "name": "NuGetClient",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "build": {
+    "ProductName": "NuGetClient",
+    "win": {
+      "icon": "./assets/nuget.png"
+    }
+  },
   "scripts": {
     "start": "tsc && electron .",
     "test": "mocha -r ts-node/register src/main/**/*.spec.ts",
