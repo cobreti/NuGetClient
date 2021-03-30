@@ -1,6 +1,6 @@
 import {IApplication} from './IApplication';
 import { injectable } from 'inversify';
-import {app, BrowserWindow} from 'electron';
+import {app, BrowserWindow, globalShortcut} from 'electron';
 
 @injectable()
 class Application implements IApplication {
@@ -20,6 +20,10 @@ class Application implements IApplication {
         nodeIntegration: false,
         contextIsolation: true
       }
+    });
+
+    globalShortcut.register('f5', () => {
+      this.mainWindow.loadFile('renderer/index.html');
     });
 
     await this.mainWindow.loadFile('renderer/index.html');
