@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NugetSourceListComponent } from './nuget-source-list/nuget-source-list.component';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NugetSourceListComponent } from './nuget-source-list/nuget-source-list.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
