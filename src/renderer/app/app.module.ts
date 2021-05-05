@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { NugetSourceListComponent } from './nuget-source-list/nuget-source-list.component';
 import {MatSliderModule} from '@angular/material/slider';
 import { FolderListComponent } from './folder-list/folder-list.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FolderListComponent } from './folder-list/folder-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatSliderModule
+    MatSliderModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
