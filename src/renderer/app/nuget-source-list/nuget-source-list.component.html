@@ -1,9 +1,16 @@
 <div class="page">
   <div class="content">
-    <div class="folder-list">
+    <div class="folder-list"
+         [style.width.px]="width"
+         mwlResizable
+         [enableGhostResize]="true"
+         [resizeEdges]="{ right: true }"
+         (resizeEnd)="onResizeEnd($event)">
       <folder-list></folder-list>
     </div>
-    <mat-divider [vertical]="true" md-inset></mat-divider>
+<!--    <mat-divider-->
+<!--      [vertical]="true"-->
+<!--      md-inset></mat-divider>-->
     <div class="source-list">
 
     </div>

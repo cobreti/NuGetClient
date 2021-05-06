@@ -8,6 +8,7 @@ import { NugetSourceListComponent } from './nuget-source-list/nuget-source-list.
 import {MatSliderModule} from '@angular/material/slider';
 import { FolderListComponent } from './folder-list/folder-list.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { ResizableModule } from 'angular-resizable-element';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatDividerModule} from '@angular/material/divider';
     BrowserModule,
     AppRoutingModule,
     MatSliderModule,
-    MatDividerModule
+    MatDividerModule,
+    ResizableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
