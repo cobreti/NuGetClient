@@ -33,7 +33,9 @@ class Application implements IApplication {
     ipcMain.on('choose-folder', async (event, ...args) => {
       console.log('choosing folder');
 
-      const root = await fsPromises.readdir('/');
+      const root = (await fsPromises.readdir('./', {withFileTypes: true }))
+        .filter(x => x.isDirectory())
+        .map(x => x.name);
 
       event.sender.send('folder-selected');
     });
