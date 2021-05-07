@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ElectronService} from 'ngx-electron';
+import * as fs from 'fs';
 // import { ipcRenderer } from 'electron';
 
 declare var electron: any;

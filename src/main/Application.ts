@@ -1,6 +1,7 @@
 import {IApplication} from './IApplication';
 import { injectable } from 'inversify';
 import {app, BrowserWindow, globalShortcut, ipcMain} from 'electron';
+import { promises as fsPromises } from 'fs';
 
 @injectable()
 class Application implements IApplication {
@@ -29,8 +30,10 @@ class Application implements IApplication {
     await this.mainWindow.loadFile('renderer/index.html');
     this.mainWindow.webContents.openDevTools();
 
-    ipcMain.on('choose-folder', (event, ...args) => {
+    ipcMain.on('choose-folder', async (event, ...args) => {
       console.log('choosing folder');
+
+      const root = await fsPromises.readdir('/');
 
       event.sender.send('folder-selected');
     });
