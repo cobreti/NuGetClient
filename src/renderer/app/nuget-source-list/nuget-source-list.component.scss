@@ -8,35 +8,40 @@
 
   .content {
     display: flex;
-    flex-flow: row;
     width: 100%;
     height: 100%;
 
-    .folder-list {
+    .folder-list-panel {
       position: relative;
       display: flex;
       min-width: 10em;
       height: 100%;
-      //border: 1px solid blue;
-      flex-direction: column;
-      background-color: lightblue;
-      border-right: 2px solid black;
+      flex-direction: row;
+      border-right: 2px solid gray;
 
-      //.resizable-right {
-      //  height: 100%;
-      //  cursor: col-resize;
-      //  width: 5px;
-      //  border-right: 1px solid black;
-      //}
+      .folder-list {
+        position: relative;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .resizable-right {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 1px;
+        border-right: 1px solid lightgrey;
+      }
     }
 
     .source-list {
       position: relative;
       display: flex;
       min-width: 10em;
-      //width: 100%;
       height: 100%;
-      //border: 1px solid red;
       flex-direction: column;
     }
   }
