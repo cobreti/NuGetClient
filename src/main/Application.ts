@@ -1,6 +1,6 @@
 import {IApplication} from './IApplication';
 import { injectable } from 'inversify';
-import {app, BrowserWindow, globalShortcut, ipcMain} from 'electron';
+import {app, BrowserWindow, dialog, globalShortcut, ipcMain} from 'electron';
 import { promises as fsPromises } from 'fs';
 
 @injectable()
@@ -33,9 +33,19 @@ class Application implements IApplication {
     ipcMain.on('choose-folder', async (event, ...args) => {
       console.log('choosing folder');
 
-      const root = (await fsPromises.readdir('./', {withFileTypes: true }))
-        .filter(x => x.isDirectory())
-        .map(x => x.name);
+      // const root = (await fsPromises.readdir('./', {withFileTypes: true }))
+      //   .filter(x => x.isDirectory())
+      //   .map(x => x.name);
+
+      const selection = await dialog.showOpenDialog(BrowserWindow.fromWebContents(event.sender), {
+        title: 'Select project folder',
+        defaultPath: './',
+        properties: ['openDirectory']
+      });
+
+      if (!selection.canceled) {
+        console.log(`folder selected : ${selection.filePaths[0]}`);
+      }
 
       event.sender.send('folder-selected');
     });
