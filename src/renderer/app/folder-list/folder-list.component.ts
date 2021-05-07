@@ -1,19 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import {ElectronService} from 'ngx-electron';
+// import { ipcRenderer } from 'electron';
+
+declare var electron: any;
 
 @Component({
-  selector: 'folder-list',
+  selector: 'app-folder-list',
   templateUrl: './folder-list.component.html',
   styleUrls: ['./folder-list.component.scss']
 })
 export class FolderListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private electronService: ElectronService) { }
 
   ngOnInit(): void {
+    this.electronService.ipcRenderer.on('folder-selected', (event, ...args) => {
+      console.log('folder selected');
+    });
   }
 
   onChooseFolder(): void {
-
+    if (this.electronService.isElectronApp) {
+      this.electronService.ipcRenderer.send('choose-folder');
+    }
   }
 
 }

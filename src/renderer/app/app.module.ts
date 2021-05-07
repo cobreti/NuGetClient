@@ -9,6 +9,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import { FolderListComponent } from './folder-list/folder-list.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { ResizableModule } from 'angular-resizable-element';
+import {NgxElectronModule} from 'ngx-electron';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ResizableModule } from 'angular-resizable-element';
     AppRoutingModule,
     MatSliderModule,
     MatDividerModule,
-    ResizableModule
+    ResizableModule,
+    NgxElectronModule
   ],
   providers: [],
   bootstrap: [AppComponent]

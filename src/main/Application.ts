@@ -1,6 +1,6 @@
 import {IApplication} from './IApplication';
 import { injectable } from 'inversify';
-import {app, BrowserWindow, globalShortcut} from 'electron';
+import {app, BrowserWindow, globalShortcut, ipcMain} from 'electron';
 
 @injectable()
 class Application implements IApplication {
@@ -17,8 +17,8 @@ class Application implements IApplication {
       height: 500,
       icon: this.rootDir + '/assets/nuget.png',
       webPreferences: {
-        nodeIntegration: false,
-        contextIsolation: true
+        nodeIntegration: true,
+        contextIsolation: false
       }
     });
 
@@ -28,6 +28,12 @@ class Application implements IApplication {
 
     await this.mainWindow.loadFile('renderer/index.html');
     this.mainWindow.webContents.openDevTools();
+
+    ipcMain.on('choose-folder', (event, ...args) => {
+      console.log('choosing folder');
+
+      event.sender.send('folder-selected');
+    });
   }
 
 }
