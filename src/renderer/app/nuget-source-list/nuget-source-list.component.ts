@@ -8,7 +8,7 @@ import {ResizeEvent} from 'angular-resizable-element';
 })
 export class NugetSourceListComponent implements OnInit {
 
-  width = 100;
+  height = 100;
 
   constructor() { }
 
@@ -16,9 +16,9 @@ export class NugetSourceListComponent implements OnInit {
   }
 
   onResizeEnd(event: ResizeEvent): void {
-    console.log(`current width: ${this.width}`);
-    this.width = event.rectangle.width ?? this.width;
-    console.log(`new width : ${this.width}`);
+    console.log(`current height: ${this.height}`);
+    this.height = event.rectangle.height ?? this.height;
+    console.log(`new height : ${this.height}`);
     console.log('Element was resized', event);
   }
 

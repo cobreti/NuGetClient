@@ -1,10 +1,10 @@
 <div class="page">
   <div class="content">
     <div class="folder-list-panel"
-         [style.width.px]="width"
+         [style.height.px]="height"
          mwlResizable
          [enableGhostResize]="true"
-         [resizeEdges]="{ right: true }"
+         [resizeEdges]="{ bottom: true }"
          (resizeEnd)="onResizeEnd($event)">
       <app-folder-list class="folder-list"></app-folder-list>
       <div class="resizable-right">
