@@ -10,13 +10,17 @@ import { FolderListComponent } from './folder-list/folder-list.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { ResizableModule } from 'angular-resizable-element';
 import {NgxElectronModule} from 'ngx-electron';
+import { NugetPackagesListComponent } from './nuget-source-list/nuget-packages-list/nuget-packages-list.component';
+import { NugetPackageComponent } from './nuget-source-list/nuget-package/nuget-package.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NugetSourceListComponent,
-    FolderListComponent
+    FolderListComponent,
+    NugetPackagesListComponent,
+    NugetPackageComponent
   ],
   imports: [
     BrowserModule,

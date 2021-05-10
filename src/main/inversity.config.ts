@@ -1,7 +1,9 @@
 import { Container } from 'inversify';
 import 'reflect-metadata';
-import {IApplication, IApplicationServiceId} from './IApplication';
+import {IApplication, IApplicationId} from './IApplication';
 import Application from './Application';
+import {UserConfigService} from './services/UserConfigService';
+import {IUserConfigServiceId} from './Services/IUserConfigService';
 
 // const container = new Container();
 //
@@ -9,11 +11,18 @@ import Application from './Application';
 //   .to(Application)
 //   .inSingletonScope();
 
+class IUserconfigService {
+}
+
 function createContainer(): Container {
   const c = new Container();
 
-  c.bind<IApplication>(IApplicationServiceId)
+  c.bind<Application>(IApplicationId)
     .to(Application)
+    .inSingletonScope();
+
+  c.bind<UserConfigService>(IUserConfigServiceId)
+    .to(UserConfigService)
     .inSingletonScope();
 
   return c;

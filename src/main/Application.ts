@@ -1,14 +1,22 @@
 import {IApplication} from './IApplication';
-import { injectable } from 'inversify';
+import {inject, injectable} from 'inversify';
 import {app, BrowserWindow, dialog, globalShortcut, ipcMain} from 'electron';
-import { promises as fsPromises } from 'fs';
+import {channels} from '../shared/Channels';
+import {IUserConfigService, IUserConfigServiceId} from './Services/IUserConfigService';
+import {UserConfigService} from './Services/UserConfigService';
 
 @injectable()
 class Application implements IApplication {
   private mainWindow: BrowserWindow;
   private rootDir: string;
 
-  async run(rootDir: string) {
+  public constructor(
+    @inject(IUserConfigServiceId) private userConfigService: IUserConfigService
+  ) {
+
+  }
+
+  async run(rootDir: string): Promise<void> {
     this.rootDir = rootDir;
 
     await app.whenReady();
@@ -30,7 +38,7 @@ class Application implements IApplication {
     await this.mainWindow.loadFile('renderer/index.html');
     this.mainWindow.webContents.openDevTools();
 
-    ipcMain.on('choose-folder', async (event, ...args) => {
+    ipcMain.on(channels.chooseFolder, async (event, ...args) => {
       console.log('choosing folder');
 
       // const root = (await fsPromises.readdir('./', {withFileTypes: true }))
@@ -47,7 +55,7 @@ class Application implements IApplication {
         console.log(`folder selected : ${selection.filePaths[0]}`);
       }
 
-      event.sender.send('folder-selected');
+      event.sender.send(channels.folderSelected);
     });
   }
 
