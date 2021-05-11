@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ElectronService} from 'ngx-electron';
-import {channels} from '../../../../shared/Channels';
 import {ConfigurationService} from '../../services/configuration.service';
+import {channels} from '@shared/Channels';
 
 declare var electron: any;
 

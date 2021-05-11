@@ -9,7 +9,11 @@
     "removeComments": false,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
-    "types": ["reflect-metadata"]
+    "types": ["reflect-metadata"],
+    "baseUrl": "./",
+    "paths": {
+      "@shared/*": ["./src/shared/*"]
+    }
   },
   "exclude": [
     "node_modules",

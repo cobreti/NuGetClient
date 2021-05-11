@@ -1,4 +1,4 @@
-import {UserConfig} from '../../shared/config/UserConfig';
+import {UserConfig} from '@shared/config/UserConfig';
 
 export interface IConfigurationService {
 

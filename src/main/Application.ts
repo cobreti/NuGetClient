@@ -1,7 +1,7 @@
 import {IApplication} from './IApplication';
 import {inject, injectable} from 'inversify';
 import {app, BrowserWindow, dialog, globalShortcut, ipcMain} from 'electron';
-import {channels} from '../shared/Channels';
+import {channels} from '@shared/Channels';
 import {IConfigurationService, IConfigurationServiceId} from './Services/IConfigurationService';
 import {IPlatform, IPlatformId} from './Services/IPlatform';
 

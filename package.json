@@ -22,6 +22,9 @@
     "ng-lint": "ng lint",
     "ng-e2e": "ng e2e"
   },
+  "_moduleAliases": {
+    "@shared": "./src/shared"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -38,6 +41,7 @@
     "@angular/router": "~11.2.0",
     "angular-resizable-element": "^3.3.5",
     "inversify": "^5.0.5",
+    "module-alias": "^2.2.2",
     "ngx-electron": "^2.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",

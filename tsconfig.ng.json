@@ -3,6 +3,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@shared/*": ["./src/shared/*"]
+    },
     "outDir": "./src/renderer/dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

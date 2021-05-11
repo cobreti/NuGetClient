@@ -1,4 +1,5 @@
 // import {app, BrowserWindow} from 'electron';
+import 'module-alias/register';
 import {createContainer} from './src/main/inversity.config';
 // import * as path from 'path';
 // import * as url from 'url';

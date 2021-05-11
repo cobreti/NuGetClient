@@ -1,8 +1,8 @@
 import {IConfigurationService} from './IConfigurationService';
-import {UserConfig} from '../../shared/config/UserConfig';
+import {UserConfig} from '@shared/config/UserConfig';
 import {injectable} from 'inversify';
 import {ipcMain} from 'electron';
-import {channels} from '../../shared/Channels';
+import {channels} from '@shared/Channels';
 
 @injectable()
 export class ConfigurationService implements IConfigurationService {
