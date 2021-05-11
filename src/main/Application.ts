@@ -3,6 +3,7 @@ import {inject, injectable} from 'inversify';
 import {app, BrowserWindow, dialog, globalShortcut, ipcMain} from 'electron';
 import {channels} from '../shared/Channels';
 import {IUserConfigService, IUserConfigServiceId} from './Services/IUserConfigService';
+import {IPlatform, IPlatformId} from './Services/IPlatform';
 
 @injectable()
 class Application implements IApplication {
@@ -10,7 +11,8 @@ class Application implements IApplication {
   private rootDir: string;
 
   public constructor(
-    @inject(IUserConfigServiceId) private userConfigService: IUserConfigService
+    @inject(IUserConfigServiceId) private userConfigService: IUserConfigService,
+    @inject(IPlatformId) private platform: IPlatform
   ) {
 
   }
@@ -34,7 +36,7 @@ class Application implements IApplication {
       }
     });
 
-    if (/^darwin/i.test(process.platform)) {
+    if (this.platform.isMacOS) {
       app.dock.setIcon(this.rootDir + '/assets/nuget.png');
     }
 

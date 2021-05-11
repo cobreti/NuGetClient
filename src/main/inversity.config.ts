@@ -3,7 +3,9 @@ import 'reflect-metadata';
 import {IApplication, IApplicationId} from './IApplication';
 import Application from './Application';
 import {UserConfigService} from './services/UserConfigService';
-import {IUserConfigServiceId} from './Services/IUserConfigService';
+import {IUserConfigService, IUserConfigServiceId} from './Services/IUserConfigService';
+import {Platform} from './Services/Platform';
+import {IPlatform, IPlatformId} from './Services/IPlatform';
 
 // const container = new Container();
 //
@@ -17,14 +19,17 @@ class IUserconfigService {
 function createContainer(): Container {
   const c = new Container();
 
-  c.bind<Application>(IApplicationId)
+  c.bind<IApplication>(IApplicationId)
     .to(Application)
     .inSingletonScope();
 
-  c.bind<UserConfigService>(IUserConfigServiceId)
+  c.bind<IUserConfigService>(IUserConfigServiceId)
     .to(UserConfigService)
     // .to(UserConfigService)
     .inSingletonScope();
+
+  c.bind<IPlatform>(IPlatformId)
+    .to(Platform);
 
   return c;
 }
