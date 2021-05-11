@@ -4,6 +4,7 @@ import {app, BrowserWindow, dialog, globalShortcut, ipcMain} from 'electron';
 import {channels} from '@shared/Channels';
 import {IConfigurationService, IConfigurationServiceId} from './Services/IConfigurationService';
 import {IPlatform, IPlatformId} from './Services/IPlatform';
+import {ILoggerService, ILoggerServiceId} from './Services/ILoggerService';
 
 @injectable()
 class Application implements IApplication {
@@ -12,12 +13,15 @@ class Application implements IApplication {
 
   public constructor(
     @inject(IConfigurationServiceId) private configuration: IConfigurationService,
-    @inject(IPlatformId) private platform: IPlatform
+    @inject(IPlatformId) private platform: IPlatform,
+    @inject(ILoggerServiceId) private logger: ILoggerService
   ) {
 
   }
 
   async init(rootDir: string): Promise<void> {
+    this.logger.debug('initializing application');
+
     this.rootDir = rootDir;
 
     this.configuration.init(this.rootDir);
@@ -25,6 +29,10 @@ class Application implements IApplication {
 
   async run(): Promise<void> {
     await app.whenReady();
+
+    app.on('before-quit', (event: Event) => this.beforeQuit(event));
+
+    app.on('will-quit', (event: Event) => this.willQuit(event));
 
     this.mainWindow = new BrowserWindow({
       width: 500,
@@ -68,6 +76,13 @@ class Application implements IApplication {
     });
   }
 
+  private beforeQuit(event: Event): void {
+    this.logger.debug('before quit event');
+  }
+
+  private async willQuit(event: Event): Promise<void> {
+    this.logger.debug('will quit event');
+  }
 }
 
 export default Application;

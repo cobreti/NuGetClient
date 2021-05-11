@@ -6,6 +6,8 @@ import {ConfigurationService} from './Services/ConfigurationService';
 import {IConfigurationService, IConfigurationServiceId} from './Services/IConfigurationService';
 import {Platform} from './Services/Platform';
 import {IPlatform, IPlatformId} from './Services/IPlatform';
+import {ILoggerService, ILoggerServiceId} from './Services/ILoggerService';
+import {LoggerService} from './Services/LoggerService';
 
 function createContainer(): Container {
   const c = new Container();
@@ -20,6 +22,10 @@ function createContainer(): Container {
 
   c.bind<IPlatform>(IPlatformId)
     .to(Platform);
+
+  c.bind<ILoggerService>(ILoggerServiceId)
+    .to(LoggerService)
+    .inSingletonScope();
 
   return c;
 }
