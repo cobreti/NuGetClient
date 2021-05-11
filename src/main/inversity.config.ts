@@ -2,8 +2,8 @@ import { Container } from 'inversify';
 import 'reflect-metadata';
 import {IApplication, IApplicationId} from './IApplication';
 import Application from './Application';
-import {UserConfigService} from './services/UserConfigService';
-import {IUserConfigService, IUserConfigServiceId} from './Services/IUserConfigService';
+import {Configuration} from './Services/Configuration';
+import {IConfiguration, IConfigurationId} from './Services/IConfiguration';
 import {Platform} from './Services/Platform';
 import {IPlatform, IPlatformId} from './Services/IPlatform';
 
@@ -23,8 +23,8 @@ function createContainer(): Container {
     .to(Application)
     .inSingletonScope();
 
-  c.bind<IUserConfigService>(IUserConfigServiceId)
-    .to(UserConfigService)
+  c.bind<IConfiguration>(IConfigurationId)
+    .to(Configuration)
     // .to(UserConfigService)
     .inSingletonScope();
 

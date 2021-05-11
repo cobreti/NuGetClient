@@ -2,7 +2,7 @@ import {IApplication} from './IApplication';
 import {inject, injectable} from 'inversify';
 import {app, BrowserWindow, dialog, globalShortcut, ipcMain} from 'electron';
 import {channels} from '../shared/Channels';
-import {IUserConfigService, IUserConfigServiceId} from './Services/IUserConfigService';
+import {IConfiguration, IConfigurationId} from './Services/IConfiguration';
 import {IPlatform, IPlatformId} from './Services/IPlatform';
 
 @injectable()
@@ -11,7 +11,7 @@ class Application implements IApplication {
   private rootDir: string;
 
   public constructor(
-    @inject(IUserConfigServiceId) private userConfigService: IUserConfigService,
+    @inject(IConfigurationId) private configuration: IConfiguration,
     @inject(IPlatformId) private platform: IPlatform
   ) {
 
@@ -20,7 +20,7 @@ class Application implements IApplication {
   async init(rootDir: string): Promise<void> {
     this.rootDir = rootDir;
 
-    this.userConfigService.init(this.rootDir);
+    this.configuration.init(this.rootDir);
   }
 
   async run(): Promise<void> {

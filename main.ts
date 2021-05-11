@@ -4,11 +4,11 @@ import {createContainer} from './src/main/inversity.config';
 // import * as url from 'url';
 import {IApplication, IApplicationId} from './src/main/IApplication';
 import Application from './src/main/Application';
-import {UserConfigService} from './src/main/Services/UserConfigService';
-import {IUserConfigServiceId} from './src/main/Services/IUserConfigService';
+import {Configuration} from './src/main/Services/Configuration';
+import {IConfigurationId} from './src/main/Services/IConfiguration';
 
 const container = createContainer();
-const service = container.get<UserConfigService>(IUserConfigServiceId);
+const service = container.get<Configuration>(IConfigurationId);
 const application = container.get<Application>(IApplicationId);
 
 application.init(__dirname)

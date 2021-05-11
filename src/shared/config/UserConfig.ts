@@ -1,3 +1,3 @@
 export interface UserConfig {
-  startupFolder: string;
+  workingFolder: string;
 }
