@@ -3,7 +3,6 @@ import {inject, injectable} from 'inversify';
 import {app, BrowserWindow, dialog, globalShortcut, ipcMain} from 'electron';
 import {channels} from '../shared/Channels';
 import {IUserConfigService, IUserConfigServiceId} from './Services/IUserConfigService';
-import {UserConfigService} from './Services/UserConfigService';
 
 @injectable()
 class Application implements IApplication {
@@ -16,9 +15,13 @@ class Application implements IApplication {
 
   }
 
-  async run(rootDir: string): Promise<void> {
+  async init(rootDir: string): Promise<void> {
     this.rootDir = rootDir;
 
+    this.userConfigService.init(this.rootDir);
+  }
+
+  async run(): Promise<void> {
     await app.whenReady();
 
     this.mainWindow = new BrowserWindow({
@@ -30,6 +33,10 @@ class Application implements IApplication {
         contextIsolation: false
       }
     });
+
+    if (/^darwin/i.test(process.platform)) {
+      app.dock.setIcon(this.rootDir + '/assets/nuget.png');
+    }
 
     globalShortcut.register('f5', () => {
       this.mainWindow.loadFile('renderer/index.html');

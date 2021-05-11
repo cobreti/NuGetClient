@@ -7,6 +7,9 @@
     "ProductName": "NuGetClient",
     "win": {
       "icon": "./assets/nuget.png"
+    },
+    "mac": {
+      "icon": "./assets/nuget.png"
     }
   },
   "scripts": {

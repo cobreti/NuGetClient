@@ -11,4 +11,10 @@ const container = createContainer();
 const service = container.get<UserConfigService>(IUserConfigServiceId);
 const application = container.get<Application>(IApplicationId);
 
-application.run(__dirname);
+application.init(__dirname)
+  .then(() => {
+    application.run();
+  })
+  .catch(err => {
+    console.error(`failure to start the application : ${err}`);
+  });

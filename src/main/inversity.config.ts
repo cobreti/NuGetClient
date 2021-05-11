@@ -23,6 +23,7 @@ function createContainer(): Container {
 
   c.bind<UserConfigService>(IUserConfigServiceId)
     .to(UserConfigService)
+    // .to(UserConfigService)
     .inSingletonScope();
 
   return c;

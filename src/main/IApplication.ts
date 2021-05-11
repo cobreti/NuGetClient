@@ -1,5 +1,6 @@
 export interface IApplication {
-  run(rootDir: string): void;
+  init(rootDir: string): Promise<void>;
+  run(): void;
 }
 
 export const IApplicationId = Symbol('IApplication');

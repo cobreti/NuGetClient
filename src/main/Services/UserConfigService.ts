@@ -4,8 +4,23 @@ import {injectable} from 'inversify';
 
 @injectable()
 export class UserConfigService implements IUserConfigService {
+
+  private userConfig: UserConfig;
+
   getUserConfig(): UserConfig {
-    return undefined;
+    return this.userConfig;
+  }
+
+  public init(startDir: string): void {
+    this.userConfig = {
+      startupFolder: startDir
+    };
+
+    this.registerChannelHandlers();
+  }
+
+  private registerChannelHandlers(): void {
+
   }
 
 }
