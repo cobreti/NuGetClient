@@ -4,8 +4,8 @@ import {IApplication, IApplicationId} from './IApplication';
 import Application from './Application';
 import {ConfigurationService} from './Services/ConfigurationService';
 import {IConfigurationService, IConfigurationServiceId} from './Services/IConfigurationService';
-import {Platform} from './Services/Platform';
-import {IPlatform, IPlatformId} from './Services/IPlatform';
+import {PlatformService} from './Services/PlatformService';
+import {IPlatformService, IPlatformServiceId} from './Services/IPlatformService';
 import {ILoggerService, ILoggerServiceId} from './Services/ILoggerService';
 import {LoggerService} from './Services/LoggerService';
 
@@ -20,8 +20,8 @@ function createContainer(): Container {
     .to(ConfigurationService)
     .inSingletonScope();
 
-  c.bind<IPlatform>(IPlatformId)
-    .to(Platform);
+  c.bind<IPlatformService>(IPlatformServiceId)
+    .to(PlatformService);
 
   c.bind<ILoggerService>(ILoggerServiceId)
     .to(LoggerService)

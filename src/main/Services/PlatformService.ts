@@ -1,8 +1,8 @@
-import {IPlatform} from './IPlatform';
+import {IPlatformService} from './IPlatformService';
 import {injectable} from 'inversify';
 
 @injectable()
-export class Platform implements IPlatform {
+export class PlatformService implements IPlatformService {
 
   public isMacOS: boolean;
 

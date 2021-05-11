@@ -3,7 +3,7 @@ import {inject, injectable} from 'inversify';
 import {app, BrowserWindow, dialog, globalShortcut, ipcMain} from 'electron';
 import {channels} from '@shared/Channels';
 import {IConfigurationService, IConfigurationServiceId} from './Services/IConfigurationService';
-import {IPlatform, IPlatformId} from './Services/IPlatform';
+import {IPlatformService, IPlatformServiceId} from './Services/IPlatformService';
 import {ILoggerService, ILoggerServiceId} from './Services/ILoggerService';
 
 @injectable()
@@ -13,7 +13,7 @@ class Application implements IApplication {
 
   public constructor(
     @inject(IConfigurationServiceId) private configuration: IConfigurationService,
-    @inject(IPlatformId) private platform: IPlatform,
+    @inject(IPlatformServiceId) private platform: IPlatformService,
     @inject(ILoggerServiceId) private logger: ILoggerService
   ) {
 
