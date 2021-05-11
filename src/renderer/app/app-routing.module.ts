@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {NugetSourceListComponent} from "./nuget-source-list/nuget-source-list.component";
+import {NugetSourceListComponent} from './components/nuget-source-list/nuget-source-list.component';
 
 const routes: Routes = [
   {
