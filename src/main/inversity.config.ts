@@ -7,15 +7,6 @@ import {IConfigurationService, IConfigurationServiceId} from './Services/IConfig
 import {Platform} from './Services/Platform';
 import {IPlatform, IPlatformId} from './Services/IPlatform';
 
-// const container = new Container();
-//
-// container.bind<IApplication>(IApplicationServiceId)
-//   .to(Application)
-//   .inSingletonScope();
-
-class IUserconfigService {
-}
-
 function createContainer(): Container {
   const c = new Container();
 
@@ -25,7 +16,6 @@ function createContainer(): Container {
 
   c.bind<IConfigurationService>(IConfigurationServiceId)
     .to(ConfigurationService)
-    // .to(UserConfigService)
     .inSingletonScope();
 
   c.bind<IPlatform>(IPlatformId)
@@ -37,5 +27,3 @@ function createContainer(): Container {
 export {
   createContainer
 };
-
-// export default createContainer;
