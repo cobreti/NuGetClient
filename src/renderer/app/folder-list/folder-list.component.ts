@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ElectronService} from 'ngx-electron';
 import {channels} from '../../../shared/Channels';
+import {ConfigurationService} from '../services/configuration.service';
 
 declare var electron: any;
 
@@ -11,7 +12,9 @@ declare var electron: any;
 })
 export class FolderListComponent implements OnInit {
 
-  constructor(private electronService: ElectronService) { }
+  constructor(
+    private electronService: ElectronService,
+    private configuration: ConfigurationService) { }
 
   ngOnInit(): void {
     this.electronService.ipcRenderer.on(channels.folderSelected, (event, ...args) => {

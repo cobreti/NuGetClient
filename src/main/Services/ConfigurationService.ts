@@ -1,9 +1,11 @@
-import {IConfiguration} from './IConfiguration';
+import {IConfigurationService} from './IConfigurationService';
 import {UserConfig} from '../../shared/config/UserConfig';
 import {injectable} from 'inversify';
+import {ipcMain} from 'electron';
+import {channels} from '../../shared/Channels';
 
 @injectable()
-export class Configuration implements IConfiguration {
+export class ConfigurationService implements IConfigurationService {
 
   public userConfig: UserConfig;
   public startupFolder: string;
@@ -19,7 +21,9 @@ export class Configuration implements IConfiguration {
   }
 
   private registerChannelHandlers(): void {
-
+    ipcMain.on(channels.getUserConfig, (event, ...args) => {
+      event.sender.send(channels.userConfig, this.userConfig);
+    });
   }
 
 }

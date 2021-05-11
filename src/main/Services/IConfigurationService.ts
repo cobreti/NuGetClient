@@ -1,6 +1,6 @@
 import {UserConfig} from '../../shared/config/UserConfig';
 
-export interface IConfiguration {
+export interface IConfigurationService {
 
   readonly userConfig: UserConfig;
   readonly startupFolder: string;
@@ -8,4 +8,4 @@ export interface IConfiguration {
   init(startupFolder: string): void;
 }
 
-export const IConfigurationId = Symbol('IConfiguration');
+export const IConfigurationServiceId = Symbol('IConfigurationService');

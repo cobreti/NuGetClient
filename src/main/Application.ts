@@ -2,7 +2,7 @@ import {IApplication} from './IApplication';
 import {inject, injectable} from 'inversify';
 import {app, BrowserWindow, dialog, globalShortcut, ipcMain} from 'electron';
 import {channels} from '../shared/Channels';
-import {IConfiguration, IConfigurationId} from './Services/IConfiguration';
+import {IConfigurationService, IConfigurationServiceId} from './Services/IConfigurationService';
 import {IPlatform, IPlatformId} from './Services/IPlatform';
 
 @injectable()
@@ -11,7 +11,7 @@ class Application implements IApplication {
   private rootDir: string;
 
   public constructor(
-    @inject(IConfigurationId) private configuration: IConfiguration,
+    @inject(IConfigurationServiceId) private configuration: IConfigurationService,
     @inject(IPlatformId) private platform: IPlatform
   ) {
 
